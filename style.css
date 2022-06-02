@@ -4,6 +4,7 @@ body {
 }
 div div{
     border: 10px solid white;
+    margin-align: center;
 }
 body div img {
     max-height:80px;
