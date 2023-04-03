@@ -203,48 +203,52 @@
             <li>Pescador.</li>
         </ul>
     </div>
-    <!-- <form>
-        <fieldset class="grupo">
-            <div class = "campo">
-                <label><strong>Nome</strong></label>
-                <input type="text" name="nome" id="nome" required>
-            </div>
+</body> 
 
-           
-        
-            <div>
-                <label><strong>Cite três coisas sobre você</strong> </label>
-                <input type="text" name="nome1" id="nome" required>
-                <input type="text" name="nome2" id="nome" required>
-                <input type="text" name="nome3" id="nome" required>
-            </div>
-            <!-- <div>
-                <input type="image" name="foto" id="foto">
-            </div> -->
-            
-            <!-- <input type='text' id='idea'>
-            <input type="button" id="add" value="Publicar">
-            <script>document.getElementById("add").onclick  = function() {
-            
-                var node = document.createElement("Li");
-                var text = document.getElementById("idea").value; 
-                var textnode=document.createTextNode(text);
-                node.appendChild(textnode);
-                document.getElementById("list").appendChild(node);
-            } --> -->
-        <!-- // </fieldset>
+<footer>
+    <ul>
+      <li> <a href="addUser.php"> Adicionar </a> </li>
+    </ul>
 
-//         <!-- <button type="button" class="botao" > Pronto </button> -->
+    <a href="tabela.php">Criar tabela - Apenas na primeira vez</a>
+  </body>
 
-<!--         
-//         <input type='text' id='idea'>
-//         <input type="button" id="add" value="Publicar">
-//         <script>document.getElementById("add").onclick  = function() { -->
+ 
+    
+</footer>
 
-<!-- //         var node = document.createElement("Li");
-//         var text = document.getElementById("idea").value; 
-//         var textnode=document.createTextNode(text);
-//         node.appendChild(textnode);
-//         document.getElementById("list").appendChild(node);
-//     }    -->
-// </body> -->
+
+  
+<div>
+
+<?php
+require_once 'conexao.php';
+
+// Selecionar todos os usuários
+$results = $db->query('SELECT * FROM pessoas');
+
+// Exibir todos os usuários em uma tabela HTML
+echo '<table>';
+//trr é linha --- th é coluna
+// echo '<ul>
+// <li>ID</li>
+// <li>Nome</li>
+// <li>Coisa 1</li>
+// <li>Coisa 2</li>
+// </ull>';
+while ($row = $results->fetchArray()) {
+
+    echo '<h2>' . $row['nome'] . '</h2>';
+    echo '<ul>';
+    echo '<li>' . $row['id'] . '</li>';
+    
+    echo '<li>' . $row['coisa1'] . '</li>';
+    echo '<li>' . $row['coisa2'] . '</li>';
+    echo '</ul>';
+}
+echo '</table>';
+
+$db->close();
+?>
+   </div>
+</footer>
